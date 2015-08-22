@@ -16,6 +16,9 @@ if ('development' == app.get('env')) {
 app.use(bodyParser.json())
 app.set('port', config.server.port)
 
+// Set as public root directory for static content
+app.use("/public", express.static(__dirname + '/public'));
+
 // Requiring RESTful user routes
 require('./routes')(app)
 

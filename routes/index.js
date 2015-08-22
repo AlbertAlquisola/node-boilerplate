@@ -3,12 +3,11 @@ var user = controllers.user
 
 module.exports = function(app) {
 
-  // GET / - Home route for testing
+  // Load homepage
   app.get('/', function(req, res) {
-    res.send({motive: "Managing users with node."});
+    res.sendFile('index.html', {root: 'public'});
   })
 
-  // TODO: namespace to users
   // POST /users - Create user with attributes
   app.post('/users', user.create)
 
